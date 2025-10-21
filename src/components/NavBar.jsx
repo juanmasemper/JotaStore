@@ -16,9 +16,9 @@ function NavBar() {
 
   return (
     <>
-      {/* 🌫️ NAVBAR PRINCIPAL */}
+      {/* NAVBAR PRINCIPAL */}
       <nav className="navbar">
-        {/* 🍔 Hamburguesa a la izquierda */}
+        {/* Menu hamburguesa */}
         <div className="navbar-left">
           <div
             className={`hamburger ${menuOpen ? 'active' : ''}`}
@@ -31,21 +31,21 @@ function NavBar() {
           </div>
         </div>
 
-        {/* 💜 Logo centrado */}
+        {/* Logo */}
         <div className="navbar-center">
           <Link to="/" className="navbar-logo" onClick={closeMenu}>
             JotaStore
           </Link>
         </div>
 
-        {/* 🛒 Carrito a la derecha */}
+        {/* Carrito */}
         <div className="navbar-right">
           <Link to="/cart" onClick={closeMenu}>
             <CartWidget />
           </Link>
         </div>
 
-        {/* 🌈 Menú glass desplegable */}
+        {/* Menú desplegable */}
         <div className={`menu-dropdown ${menuOpen ? 'open' : ''}`}>
           <Link to="/" className="nav-link" onClick={closeMenu}>
             Inicio
@@ -59,7 +59,7 @@ function NavBar() {
         </div>
       </nav>
 
-      {/* 🌫️ Overlay con control de eventos */}
+      {/* Overlay con control de eventos */}
       <div
         className={`overlay ${menuOpen ? 'show' : ''}`}
         onClick={closeMenu}
