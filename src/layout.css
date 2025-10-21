@@ -1,0 +1,18 @@
+:root { --navbar-h: 72px; } /* ajustá si tu navbar es más alta/baja */
+
+html, body, #root { height: 100%; }
+* { box-sizing: border-box; }
+body { margin: 0; }
+
+/* Hace que el área de las páginas ocupe el alto de la ventana menos la NavBar
+   y centra su contenido vertical y horizontalmente */
+.page-shell {
+  min-height: calc(100vh - var(--navbar-h));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 24px;
+}
+
+/* Opcional: fija la altura de la NavBar para que el cálculo sea estable */
+.navbar { height: var(--navbar-h); }

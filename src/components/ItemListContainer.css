@@ -1,0 +1,29 @@
+.item-list-container {
+  position: fixed;             /* centra respecto al viewport */
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  width: 100%;
+}
+
+.item-list-container h1 {
+  color: #fff;
+  font-weight: 400;
+  font-size: 2.2rem;
+  margin-bottom: 10px;
+}
+
+.store-name {
+  color: #9b5de5;
+  font-weight: 700;
+}
+
+.item-list-container p {
+  color: #ccc;
+  font-size: 1.1rem;
+}
