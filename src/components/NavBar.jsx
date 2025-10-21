@@ -16,7 +16,7 @@ function NavBar() {
 
   return (
     <>
-      {/* NAVBAR PRINCIPAL */}
+      {/* Navbar*/}
       <nav className="navbar">
         {/* Menu hamburguesa */}
         <div className="navbar-left">
