@@ -14,5 +14,5 @@ body { margin: 0; }
   padding: 24px;
 }
 
-/* Opcional: fija la altura de la NavBar para que el cálculo sea estable */
+/* Se fija la altura de la NavBar para que el cálculo sea estable */
 .navbar { height: var(--navbar-h); }

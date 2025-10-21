@@ -1,63 +1,230 @@
+/* 🌫️ NAVBAR PRINCIPAL - Glass Style */
 .navbar {
   width: 90%;
-  margin: 20px auto 0 auto;           /* centrada y separada del borde superior */
-  background-color: rgba(31, 31, 31, 0.9);
-  border-radius: 16px;
-  padding: 15px 40px;
+  margin: 25px auto 0 auto;
+  background: rgba(255, 255, 255, 0.1);
+  border-radius: 20px;
+  border: 1px solid rgba(255, 255, 255, 0.18);
+  padding: 14px 30px;
   display: flex;
   align-items: center;
-  justify-content: space-between;     /* distribuye logo / links / carrito */
-  box-shadow: 0 4px 20px rgba(0, 0, 0, 0.3);
-  backdrop-filter: blur(6px);
+  justify-content: space-between;
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  box-shadow: 0 4px 25px rgba(0, 0, 0, 0.3);
+  position: relative;
+  z-index: 100;
+  transition: all 0.3s ease;
 }
 
-/* Contenedor central que mantiene los links centrados */
-.navbar-center {
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);        /* centra exactamente */
+/* 🩵 Hamburguesa a la izquierda */
+.navbar-left {
+  flex: 1;
   display: flex;
-  gap: 40px;                          /* separación entre enlaces */
+  justify-content: flex-start;
+  align-items: center;
 }
 
-/* Logo */
+/* 💜 Logo centrado */
+.navbar-center {
+  flex: 1;
+  display: flex;
+  justify-content: center;
+}
+
 .navbar-logo {
-  color: #9b5de5;
+  color: #cba6f7;
   font-weight: 700;
   font-size: 1.5rem;
   text-decoration: none;
-}
-
-/* Links */
-.nav-link {
-  color: #fff;
-  text-decoration: none;
-  font-weight: 500;
+  letter-spacing: 0.5px;
   transition: color 0.3s ease;
 }
 
-.nav-link:hover {
-  color: #9b5de5;
+.navbar-logo:hover {
+  color: #e2d3ff;
+  text-shadow: 0 0 10px #cba6f7;
 }
 
-/* Carrito */
+/* 🛒 Carrito a la derecha */
 .navbar-right {
+  flex: 1;
   display: flex;
+  justify-content: flex-end;
   align-items: center;
+  position: relative;
+  z-index: 200; /* siempre encima del overlay y del menú */
 }
 
-/* Responsive */
-@media (max-width: 768px) {
+/* 🍔 HAMBURGUESA */
+.hamburger {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  gap: 5px;
+  cursor: pointer;
+  z-index: 200;
+}
+
+.hamburger span {
+  width: 25px;
+  height: 3px;
+  background-color: #fff;
+  border-radius: 2px;
+  transition: all 0.3s ease;
+}
+
+/* ✖️ Animación hamburguesa */
+.hamburger.active span:nth-child(1) {
+  transform: rotate(45deg) translate(5px, 5px);
+}
+.hamburger.active span:nth-child(2) {
+  opacity: 0;
+}
+.hamburger.active span:nth-child(3) {
+  transform: rotate(-45deg) translate(6px, -6px);
+}
+
+/* 🌫️ OVERLAY */
+.overlay {
+  position: fixed;
+  inset: 0;
+  background: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(12px);
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 0.3s ease;
+  z-index: 90;
+}
+
+.overlay.show {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+/* 💎 MENÚ DESPLEGABLE GLASS */
+.menu-dropdown {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 50%;
+  transform: translateX(-50%) scaleY(0);
+  width: 85%;
+  max-width: 280px;
+  border-radius: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 20px;
+  padding: 22px 16px;
+
+  /* 🌫️ Fondo glass translúcido */
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.2);
+  backdrop-filter: blur(18px);
+  -webkit-backdrop-filter: blur(18px);
+
+  /* 💜 Brillo violeta suave */
+  box-shadow:
+    0 8px 25px rgba(0, 0, 0, 0.35),
+    inset 0 0 15px rgba(255, 255, 255, 0.15),
+    0 0 25px rgba(203, 166, 247, 0.3);
+
+  transform-origin: top center;
+  opacity: 0;
+  transition: all 0.4s cubic-bezier(0.25, 1.25, 0.5, 1.1);
+  z-index: 150;
+}
+
+.menu-dropdown.open {
+  transform: translateX(-50%) scaleY(1);
+  opacity: 1;
+}
+
+/* 🌈 LINKS DEL MENÚ */
+.nav-link {
+  color: #ffffffcc;
+  text-decoration: none;
+  font-weight: 500;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+}
+
+.nav-link:hover {
+  color: #cba6f7;
+  text-shadow: 0 0 10px #cba6f7, 0 0 20px #cba6f7;
+  transform: translateY(-2px);
+}
+
+/* 📱 RESPONSIVE */
+@media (max-width: 992px) {
   .navbar {
-    flex-direction: column;
-    height: auto;
-    padding: 20px;
+    padding: 12px 20px;
   }
 
-  .navbar-center {
-    position: static;
-    transform: none;
-    margin-top: 10px;
-    gap: 20px;
+  .navbar-logo {
+    font-size: 1.3rem;
+  }
+
+  .hamburger span {
+    width: 22px;
+  }
+
+  .menu-dropdown {
+    width: 90%;
+  }
+}
+
+/* 💫 ANIMACIÓN SUAVE DE LOS LINKS */
+.menu-dropdown.open .nav-link {
+  opacity: 0;
+  transform: translateY(-10px);
+  animation: fadeSlide 0.5s ease forwards;
+}
+
+.menu-dropdown.open .nav-link:nth-child(1) {
+  animation-delay: 0.1s;
+}
+.menu-dropdown.open .nav-link:nth-child(2) {
+  animation-delay: 0.2s;
+}
+.menu-dropdown.open .nav-link:nth-child(3) {
+  animation-delay: 0.3s;
+}
+
+@keyframes fadeSlide {
+  from {
+    opacity: 0;
+    transform: translateY(-10px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* 🛒 EFECTO DE REBOTE DEL CARRITO */
+.cart-icon {
+  cursor: pointer;
+  transition: transform 0.2s ease;
+}
+
+.cart-icon:active {
+  transform: scale(0.9);
+  animation: bounceCart 0.4s ease;
+}
+
+@keyframes bounceCart {
+  0% {
+    transform: scale(1);
+  }
+  30% {
+    transform: scale(1.2);
+  }
+  60% {
+    transform: scale(0.95);
+  }
+  100% {
+    transform: scale(1);
   }
 }

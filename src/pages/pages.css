@@ -1,5 +1,5 @@
 .page {
-  position: fixed;             /* centrado absoluto, igual que el Home */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -10,6 +10,20 @@
   text-align: center;
   width: 100%;
   height: auto;
+  padding: 0 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .page h1 {
@@ -24,7 +38,23 @@
   font-size: 1.1rem;
 }
 
-.store-name {
-  color: #9b5de5;
-  font-weight: 700;
+/* Responsive */
+@media (max-width: 768px) {
+  .page h1 {
+    font-size: 1.8rem;
+  }
+
+  .page p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .page h1 {
+    font-size: 1.5rem;
+  }
+
+  .page p {
+    font-size: 0.95rem;
+  }
 }

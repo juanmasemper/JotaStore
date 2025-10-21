@@ -1,5 +1,5 @@
 .item-list-container {
-  position: fixed;             /* centra respecto al viewport */
+  position: fixed;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
@@ -9,6 +9,21 @@
   justify-content: center;
   text-align: center;
   width: 100%;
+  height: auto;
+  padding: 0 20px;
+  opacity: 0;
+  animation: fadeIn 0.8s ease-in forwards;
+}
+
+@keyframes fadeIn {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -45%);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, -50%);
+  }
 }
 
 .item-list-container h1 {
@@ -26,4 +41,25 @@
 .item-list-container p {
   color: #ccc;
   font-size: 1.1rem;
+}
+
+/* --- 🔹 Responsividad --- */
+@media (max-width: 768px) {
+  .item-list-container h1 {
+    font-size: 1.8rem;
+  }
+
+  .item-list-container p {
+    font-size: 1rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .item-list-container h1 {
+    font-size: 1.5rem;
+  }
+
+  .item-list-container p {
+    font-size: 0.95rem;
+  }
 }
