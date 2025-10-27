@@ -1,4 +1,4 @@
-import './Pages.css'
+import './pages.css'
 
 function Productos() {
   return (
