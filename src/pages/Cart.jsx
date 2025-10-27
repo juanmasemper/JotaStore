@@ -1,4 +1,4 @@
-import './Pages.css'
+import "./pages.css";
 import { Link } from 'react-router-dom'
 
 function Cart() {
