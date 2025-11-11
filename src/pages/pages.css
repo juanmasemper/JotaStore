@@ -1,60 +1,328 @@
-.page {
-  position: fixed;
-  top: 50%;
-  left: 50%;
-  transform: translate(-50%, -50%);
+/* ======== CARRITO ======== */
+.cart-page {
+  max-width: 1100px;
+  margin: 60px auto;
+  background: rgba(255, 255, 255, 0.06);
+  border-radius: 24px;
+  padding: 40px 60px;
+  box-shadow: 0 0 40px rgba(203, 166, 247, 0.25);
+  text-align: center;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+}
+
+.cart-page h2 {
+  color: #cba6f7;
+  font-size: 1.8rem;
+  font-weight: 700;
+  margin-bottom: 40px;
+  text-shadow: 0 0 12px rgba(203, 166, 247, 0.5);
+}
+
+.cart-items {
+  display: flex;
+  flex-direction: column;
+  gap: 30px;
+  margin-bottom: 40px;
+}
+
+.cart-item {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: rgba(255, 255, 255, 0.08);
+  border-radius: 18px;
+  padding: 25px 30px;
+  box-shadow: 0 0 20px rgba(203, 166, 247, 0.15);
+  transition: all 0.3s ease;
+}
+
+.cart-item:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 0 25px rgba(203, 166, 247, 0.3);
+}
+
+.cart-item img {
+  width: 160px;
+  height: 110px;
+  object-fit: cover;
+  border-radius: 14px;
+  box-shadow: 0 0 12px rgba(203, 166, 247, 0.3);
+  transition: transform 0.3s ease;
+}
+
+.cart-item img:hover {
+  transform: scale(1.05);
+}
+
+.cart-info {
+  flex: 1;
+  margin-left: 25px;
+  text-align: left;
+}
+
+.cart-info h3 {
+  color: #cba6f7;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 8px;
+}
+
+.cart-info p {
+  color: #e6e6e6;
+  margin: 4px 0;
+  font-size: 0.95rem;
+}
+
+.cart-info button {
+  background: linear-gradient(90deg, #cba6f7, #a58cf7);
+  color: #1e1e2e;
+  border: none;
+  border-radius: 10px;
+  padding: 6px 14px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+}
+
+.cart-info button:hover {
+  background: linear-gradient(90deg, #a58cf7, #cba6f7);
+  transform: translateY(-2px);
+}
+
+.cart-total {
+  font-size: 1.4rem;
+  font-weight: 700;
+  color: #cba6f7;
+  margin-bottom: 35px;
+}
+
+.cart-actions {
+  display: flex;
+  justify-content: center;
+  gap: 25px;
+  flex-wrap: wrap;
+}
+
+.cart-actions button,
+.cart-actions a {
+  background: linear-gradient(90deg, #cba6f7, #a58cf7);
+  color: #1e1e2e;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  text-decoration: none;
+  box-shadow: 0 0 15px rgba(203, 166, 247, 0.25);
+}
+
+.cart-actions button:hover,
+.cart-actions a:hover {
+  background: linear-gradient(90deg, #a58cf7, #cba6f7);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(203, 166, 247, 0.5);
+}
+
+/* Carrito vacío */
+.cart-empty {
+  text-align: center;
+  color: #fff;
+  margin-top: 80px;
+}
+
+.cart-empty h2 {
+  color: #cba6f7;
+  margin-bottom: 15px;
+}
+
+.cart-empty .back-btn {
+  background: linear-gradient(90deg, #cba6f7, #a58cf7);
+  color: #1e1e2e;
+  border: none;
+  border-radius: 12px;
+  padding: 12px 22px;
+  font-weight: 600;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 15px rgba(203, 166, 247, 0.25);
+}
+
+.cart-empty .back-btn:hover {
+  background: linear-gradient(90deg, #a58cf7, #cba6f7);
+  transform: translateY(-2px);
+  box-shadow: 0 0 18px rgba(203, 166, 247, 0.5);
+}
+
+/* SweetAlert */
+.swal2-popup {
+  border-radius: 1rem !important;
+  box-shadow: 0 0 20px rgba(203, 166, 247, 0.3) !important;
+  font-family: 'Poppins', sans-serif;
+  background: #1e1e2e !important;
+  color: #fff !important;
+}
+
+/* === FILTRO DE CATEGORÍAS === */
+.category-buttons {
+  display: flex;
+  justify-content: center;
+  flex-wrap: wrap;
+  gap: 12px;
+  margin-bottom: 2.5rem;
+}
+
+.category-btn {
+  padding: 10px 18px;
+  border-radius: 20px;
+  background: rgba(255, 255, 255, 0.08);
+  border: 1px solid rgba(255, 255, 255, 0.25);
+  color: #fff;
+  font-size: 1rem;
+  cursor: pointer;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  transition: all 0.3s ease;
+}
+
+.category-btn:hover {
+  background: rgba(255, 255, 255, 0.15);
+  transform: translateY(-2px);
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.4);
+}
+
+.category-btn.active {
+  background: linear-gradient(90deg, #cba6f7, #a58cf7);
+  box-shadow: 0 0 15px rgba(203, 166, 247, 0.7);
+  border-color: #cba6f7;
+  color: #fff;
+  transform: scale(1.05);
+}
+
+/* === RESPONSIVE GENERAL === */
+@media (max-width: 768px) {
+  .cart-item {
+    flex-direction: column;
+    text-align: center;
+  }
+
+  .cart-item img {
+    width: 100%;
+    max-width: 280px;
+    height: auto;
+    margin-bottom: 15px;
+  }
+
+  .cart-info {
+    margin-left: 0;
+  }
+
+  .category-btn {
+    font-size: 0.9rem;
+    padding: 8px 14px;
+  }
+}
+
+/* ======== CONTACTO ======== */
+.contact-page {
+  min-height: 100vh;
+  padding: 60px 5%;
+  color: #fff;
+  background: radial-gradient(circle at top left, #1a1a1f, #0e0e10);
   display: flex;
   flex-direction: column;
   align-items: center;
-  justify-content: center;
+  justify-content: flex-start;
+}
+
+.contact-subtitle {
   text-align: center;
+  color: #ddd;
+  max-width: 600px;
+  margin-bottom: 40px;
+}
+
+/* ===== FORMULARIO DE CONTACTO MEJORADO ===== */
+.contact-form {
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(203, 166, 247, 0.25);
+  border-radius: 20px;
+  padding: 35px;
+  box-shadow: 0 0 25px rgba(203, 166, 247, 0.25);
+  display: flex;
+  flex-direction: column;
+  gap: 20px;
   width: 100%;
-  height: auto;
-  padding: 0 20px;
-  opacity: 0;
-  animation: fadeIn 0.8s ease-in forwards;
+  max-width: 520px;
+  backdrop-filter: blur(14px);
+  -webkit-backdrop-filter: blur(14px);
 }
 
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translate(-50%, -45%);
-  }
-  to {
-    opacity: 1;
-    transform: translate(-50%, -50%);
-  }
-}
-
-.page h1 {
+/* === Inputs y Textarea CORREGIDOS === */
+.contact-form input,
+.contact-form textarea {
+  width: 100%;
+  max-width: 460px; /* 🔹 Mantiene proporción dentro del form */
+  align-self: center; /* 🔹 Centra los campos dentro del contenedor */
+  border: 1px solid rgba(203, 166, 247, 0.35);
+  border-radius: 12px;
+  padding: 13px 15px;
+  background: rgba(30, 30, 40, 0.7);
   color: #fff;
-  font-weight: 400;
-  font-size: 2.2rem;
-  margin-bottom: 10px;
+  font-size: 1rem;
+  font-family: 'Poppins', sans-serif;
+  outline: none;
+  transition: all 0.3s ease;
+  box-shadow: inset 0 0 8px rgba(0, 0, 0, 0.3);
 }
 
-.page p {
-  color: #ccc;
-  font-size: 1.1rem;
+/* Placeholder */
+.contact-form input::placeholder,
+.contact-form textarea::placeholder {
+  color: rgba(255, 255, 255, 0.65);
+  font-style: italic;
 }
 
-/* Responsive */
+/* Efecto al enfocar */
+.contact-form input:focus,
+.contact-form textarea:focus {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: #cba6f7;
+  box-shadow: 0 0 10px rgba(203, 166, 247, 0.6);
+  transform: scale(1.01);
+}
+
+/* Textarea */
+.contact-form textarea {
+  resize: none;
+  min-height: 120px;
+}
+
+
+/* === Botón === */
+.contact-form button {
+  background: linear-gradient(90deg, #cba6f7, #a58cf7);
+  color: #1e1e2e;
+  border: none;
+  border-radius: 12px;
+  padding: 14px 20px;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 0 0 18px rgba(203, 166, 247, 0.35);
+}
+
+.contact-form button:hover {
+  background: linear-gradient(90deg, #a58cf7, #cba6f7);
+  transform: translateY(-2px);
+  box-shadow: 0 0 22px rgba(203, 166, 247, 0.6);
+}
+
+
+/* Responsive contacto */
 @media (max-width: 768px) {
-  .page h1 {
-    font-size: 1.8rem;
-  }
-
-  .page p {
-    font-size: 1rem;
-  }
-}
-
-@media (max-width: 480px) {
-  .page h1 {
-    font-size: 1.5rem;
-  }
-
-  .page p {
-    font-size: 0.95rem;
+  .contact-form {
+    width: 90%;
   }
 }
