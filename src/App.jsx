@@ -1,31 +1,42 @@
-import { BrowserRouter, Routes, Route } from 'react-router-dom'
+import { BrowserRouter, Routes, Route, Navigate } from 'react-router-dom'
 import { CartProvider } from './context/CartContext'
+
 import NavBar from './components/NavBar'
+import ItemListContainer from './components/ItemListContainer'
+import ItemDetailContainer from './components/ItemDetailContainer'
+
 import Home from './pages/Home'
-import Productos from './pages/Productos'
 import Contacto from './pages/Contacto'
 import Cart from './pages/Cart'
 import NotFound from './pages/NotFound'
-import ItemDetailContainer from './components/ItemDetailContainer'
 
 function App() {
   return (
     <CartProvider>
       <BrowserRouter>
         <NavBar />
-        <Routes>
-          <Route path="/" element={<Home />} />
-          
-          {/* Catálogo principal y categorías usan el mismo componente */}
-          <Route path="/productos" element={<Productos />} />
-          <Route path="/categoria/:categoryId" element={<Productos />} />
 
-          {/* Detalle de producto */}
+        <Routes>
+          {/* Home */}
+          <Route path="/home" element={<Home />} />
+
+          {/* Catálogo principal */}
+          <Route path="/" element={<ItemListContainer />} />
+
+          {/* Redirección correcta según rúbrica */}
+          <Route path="/productos" element={<Navigate to="/" />} />
+
+          {/* Categorías */}
+          <Route path="/categoria/:categoryId" element={<ItemListContainer />} />
+
+          {/* Detalle */}
           <Route path="/item/:id" element={<ItemDetailContainer />} />
 
-          {/* Contacto, carrito y página 404 */}
+          {/* Contacto + Carrito */}
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
+
+          {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>
       </BrowserRouter>

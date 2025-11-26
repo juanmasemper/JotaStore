@@ -11,20 +11,20 @@ function NavBar() {
   return (
     <>
       <nav className="navbar">
-        {/* Ícono hamburguesa */}
+        
+        {/* HAMBURGUER */}
         <div className="navbar-left">
           <div
             className={`hamburger ${menuOpen ? 'active' : ''}`}
             onClick={toggleMenu}
-            aria-label="Abrir menú"
           >
             <span></span><span></span><span></span>
           </div>
         </div>
 
-        {/* LOGO CENTRAL */}
+        {/* LOGO → HOME */}
         <div className="navbar-center">
-          <Link to="/" className="navbar-logo" onClick={closeMenu}>
+          <Link to="/home" className="navbar-logo" onClick={closeMenu}>
             JotaStore
           </Link>
         </div>
@@ -38,13 +38,24 @@ function NavBar() {
 
         {/* MENÚ DESPLEGABLE */}
         <div className={`menu-dropdown ${menuOpen ? 'open' : ''}`}>
-          <NavLink to="/" className="nav-link" onClick={closeMenu}>Inicio</NavLink>
-          <NavLink to="/productos" className="nav-link" onClick={closeMenu}>Todos los productos</NavLink>
-          <NavLink to="/contacto" className="nav-link" onClick={closeMenu}>Contacto</NavLink>
+          <NavLink to="/home" className="nav-link" onClick={closeMenu}>
+            Inicio
+          </NavLink>
+
+          <NavLink to="/productos" className="nav-link" onClick={closeMenu}>
+            Todos los productos
+          </NavLink>
+
+          <NavLink to="/contacto" className="nav-link" onClick={closeMenu}>
+            Contacto
+          </NavLink>
         </div>
       </nav>
 
-      <div className={`overlay ${menuOpen ? 'show' : ''}`} onClick={closeMenu}></div>
+      <div 
+        className={`overlay ${menuOpen ? 'show' : ''}`} 
+        onClick={closeMenu}
+      ></div>
     </>
   )
 }

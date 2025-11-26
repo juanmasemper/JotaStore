@@ -20,7 +20,7 @@ function ItemDetailContainer() {
   if (loading) return <p className="loading">Cargando producto...</p>
   if (!product) return <p className="loading">Producto no encontrado.</p>
 
-  // ✅ Ahora renderizamos el componente ItemDetail, pasándole el producto
+  // Ahora renderizamos el componente ItemDetail, pasándole el producto
   return (
     <section className="item-detail-container">
       <ItemDetail product={product} />

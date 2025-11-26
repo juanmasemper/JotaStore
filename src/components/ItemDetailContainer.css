@@ -32,8 +32,8 @@
 
 @media (min-width: 1024px) {
   .item-detail-image {
-    max-height: 750px; /* ajustá este valor a gusto */
-    object-fit: contain; /* mantiene proporciones sin recortar */
+    max-height: 750px;
+    object-fit: contain;
   }
 }
 

@@ -1,3 +1,4 @@
+import { Link } from 'react-router-dom'
 import './Home.css'
 
 function Home() {
@@ -7,7 +8,11 @@ function Home() {
         <div className="hero-text">
           <h1>Bienvenido a <span>JotaStore</span></h1>
           <p>Estilo urbano, minimalista y 100% auténtico.</p>
-          <a href="/productos" className="cta-btn">Ver catálogo</a>
+
+          {/* Usamos Link para navegación SPA */}
+          <Link to="/productos" className="cta-btn">
+            Ver catálogo
+          </Link>
         </div>
 
         <div className="hero-carousel">

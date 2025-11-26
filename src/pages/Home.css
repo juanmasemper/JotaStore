@@ -84,7 +84,7 @@
   box-shadow: 0 8px 35px rgba(203, 166, 247, 0.25);
 }
 
-/* 📱 Responsividad */
+/* Responsividad */
 @media (max-width: 992px) {
   .hero-text h1 {
     font-size: 2.3rem;

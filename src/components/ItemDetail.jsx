@@ -11,10 +11,10 @@ function ItemDetail({ product }) {
   const handleAddToCart = (quantity) => {
     console.log('🟣 handleAddToCart ejecutado con', quantity)
 
-    // ✅ Usar el nombre correcto de la función del contexto
+    // Usar el nombre correcto de la función del contexto
     addToCart(product, quantity)
 
-    // 🟢 Alerta visual con SweetAlert2
+    // Alerta visual con SweetAlert2
     Swal.fire({
       title: '🛒 Producto agregado',
       html: `
@@ -39,7 +39,6 @@ function ItemDetail({ product }) {
         <p>{product.description}</p>
         <p className="item-detail-price">${product.price}</p>
 
-        {/* ✅ Pasamos correctamente la función al ItemCount */}
         <ItemCount stock={product.stock} initial={1} onAdd={handleAddToCart} />
 
         <div className="back-container">

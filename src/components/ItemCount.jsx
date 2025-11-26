@@ -5,21 +5,25 @@ function ItemCount({ stock, initial, onAdd }) {
   const [count, setCount] = useState(initial)
 
   const handleAdd = () => {
-    console.log('✅ Botón Agregar clickeado. Cantidad:', count)
-    if (onAdd) {
-      onAdd(count)
-    } else {
-      console.warn('⚠️ No se recibió la función onAdd en ItemCount')
-    }
+    if (onAdd) onAdd(count)
+  }
+
+  const decrease = () => {
+    if (count > 1) setCount(count - 1)
+  }
+
+  const increase = () => {
+    if (count < stock) setCount(count + 1)
   }
 
   return (
     <div className="item-count">
       <div className="controls">
-        <button onClick={() => setCount(count - 1)} disabled={count <= 1}>-</button>
+        <button onClick={decrease} disabled={count <= 1}>-</button>
         <span>{count}</span>
-        <button onClick={() => setCount(count + 1)} disabled={count >= stock}>+</button>
+        <button onClick={increase} disabled={count >= stock}>+</button>
       </div>
+
       <button className="add-btn" onClick={handleAdd}>
         Agregar al carrito
       </button>

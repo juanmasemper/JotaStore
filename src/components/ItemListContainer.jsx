@@ -11,7 +11,10 @@ function ItemListContainer() {
 
   useEffect(() => {
     setLoading(true)
-    const fetchData = categoryId ? getProductsByCategory(categoryId) : getProducts()
+    
+    const fetchData = categoryId
+      ? getProductsByCategory(categoryId)
+      : getProducts()
 
     fetchData
       .then((res) => setProducts(res))
@@ -28,6 +31,7 @@ function ItemListContainer() {
           <h2 className="catalogo-title">
             {categoryId ? `Categoría: ${categoryId}` : 'Catálogo de JotaStore'}
           </h2>
+
           <ItemList items={products} />
         </>
       )}

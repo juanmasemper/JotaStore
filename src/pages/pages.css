@@ -263,8 +263,8 @@
 .contact-form input,
 .contact-form textarea {
   width: 100%;
-  max-width: 460px; /* 🔹 Mantiene proporción dentro del form */
-  align-self: center; /* 🔹 Centra los campos dentro del contenedor */
+  max-width: 460px;
+  align-self: center;
   border: 1px solid rgba(203, 166, 247, 0.35);
   border-radius: 12px;
   padding: 13px 15px;
