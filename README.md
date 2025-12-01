@@ -269,7 +269,7 @@ El nuevo dropdown de filtro incluye:
 
 ## 👨‍💻 Autor
 
-**Juan Masemper** — Proyecto de CoderHouse (ReactJS)
+**Juan Manuel Semper** — Proyecto de CoderHouse (ReactJS)
 
 ---
 
