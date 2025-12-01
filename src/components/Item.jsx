@@ -1,5 +1,5 @@
-import { Link } from 'react-router-dom'
-import './ItemListContainer.css'
+import { Link } from "react-router-dom";
+import "./ItemListContainer.css";
 
 function Item({ product }) {
   return (
@@ -14,7 +14,7 @@ function Item({ product }) {
         </Link>
       </div>
     </article>
-  )
+  );
 }
 
-export default Item
+export default Item;

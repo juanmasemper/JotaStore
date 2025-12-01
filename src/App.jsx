@@ -8,6 +8,7 @@ import ItemDetailContainer from './components/ItemDetailContainer'
 import Home from './pages/Home'
 import Contacto from './pages/Contacto'
 import Cart from './pages/Cart'
+import Checkout from "./pages/Checkout";
 import NotFound from './pages/NotFound'
 
 function App() {
@@ -36,6 +37,9 @@ function App() {
           <Route path="/contacto" element={<Contacto />} />
           <Route path="/cart" element={<Cart />} />
 
+          {/* Checkout */}
+          <Route path="/checkout" element={<Checkout />} />
+          
           {/* 404 */}
           <Route path="*" element={<NotFound />} />
         </Routes>

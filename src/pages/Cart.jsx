@@ -17,7 +17,6 @@ function Cart() {
 
   const total = cart.reduce((acc, item) => acc + item.price * item.quantity, 0)
 
-  // Eliminar producto individual
   const handleRemove = (item) => {
     Swal.fire({
       title: '¿Eliminar producto?',
@@ -45,7 +44,6 @@ function Cart() {
     })
   }
 
-  // Vaciar todo el carrito
   const handleClearCart = () => {
     Swal.fire({
       title: '¿Vaciar carrito?',
@@ -73,24 +71,9 @@ function Cart() {
     })
   }
 
-  // Finalizar compra
-  const handleFinishPurchase = () => {
-    Swal.fire({
-      title: '¡Compra confirmada! 🎉',
-      text: 'Gracias por tu compra. Te enviaremos los detalles por correo.',
-      icon: 'success',
-      confirmButtonColor: '#cba6f7',
-      background: '#1e1e2e',
-      color: '#fff',
-    })
-    clearCart()
-  }
-
   return (
     <div className="cart-page">
-      <h2>
-        🛍️ Tu carrito
-      </h2>
+      <h2>🛍️ Tu carrito</h2>
 
       <div className="cart-items">
         {cart.map((item) => (
@@ -110,8 +93,11 @@ function Cart() {
 
       <div className="cart-actions">
         <button onClick={handleClearCart} className="clear-btn">Vaciar carrito</button>
-        <Link to="/productos" className="back-btn">Seguir comprando</Link>
-        <button onClick={handleFinishPurchase} className="buy-btn">Finalizar compra</button>
+        <Link to="/" className="continue-btn">Seguir comprando</Link>
+
+        <Link to="/checkout" className="checkout-btn">
+          Finalizar compra
+        </Link>
       </div>
     </div>
   )

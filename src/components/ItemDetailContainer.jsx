@@ -1,31 +1,41 @@
-import { useEffect, useState } from 'react'
-import { useParams } from 'react-router-dom'
-import { getProductById } from '../data/products'
-import ItemDetail from '../components/ItemDetail'
-import './ItemDetailContainer.css'
+import { useEffect, useState } from "react";
+import { useParams } from "react-router-dom";
+import { doc, getDoc } from "firebase/firestore";
+import { db } from "../firebase/firebase";
+import ItemDetail from "./ItemDetail";
+import "./ItemDetailContainer.css";
 
 function ItemDetailContainer() {
-  const { id } = useParams()
-  const [product, setProduct] = useState(null)
-  const [loading, setLoading] = useState(true)
+  const { id } = useParams();
+  const [item, setItem] = useState(null);
+  const [loading, setLoading] = useState(true);
 
   useEffect(() => {
-    setLoading(true)
-    getProductById(id)
-      .then((res) => setProduct(res))
-      .catch((err) => console.error(err))
-      .finally(() => setLoading(false))
-  }, [id])
+    setLoading(true);
 
-  if (loading) return <p className="loading">Cargando producto...</p>
-  if (!product) return <p className="loading">Producto no encontrado.</p>
+    const docRef = doc(db, "products", id);
 
-  // Ahora renderizamos el componente ItemDetail, pasándole el producto
+    getDoc(docRef)
+      .then((snapshot) => {
+        if (snapshot.exists()) {
+          setItem({ id: snapshot.id, ...snapshot.data() });
+        } else {
+          console.log("Producto no encontrado");
+        }
+      })
+      .catch((err) => console.log("Error al obtener producto:", err))
+      .finally(() => setLoading(false));
+  }, [id]);
+
   return (
     <section className="item-detail-container">
-      <ItemDetail product={product} />
+      {loading ? (
+        <p className="loading">Cargando producto...</p>
+      ) : (
+        item && <ItemDetail product={item} />
+      )}
     </section>
-  )
+  );
 }
 
-export default ItemDetailContainer
+export default ItemDetailContainer;

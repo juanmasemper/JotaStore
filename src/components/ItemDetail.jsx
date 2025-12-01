@@ -11,10 +11,13 @@ function ItemDetail({ product }) {
   const handleAddToCart = (quantity) => {
     console.log('🟣 handleAddToCart ejecutado con', quantity)
 
-    // Usar el nombre correcto de la función del contexto
-    addToCart(product, quantity)
+    // 🔥 Ahora addToCart devuelve true o false según si se pudo agregar
+    const added = addToCart(product, quantity)
 
-    // Alerta visual con SweetAlert2
+    // ❌ Si no se pudo agregar, NO mostramos alerta de éxito
+    if (!added) return
+
+    // ✔️ Solo mostramos alerta si se agregó correctamente
     Swal.fire({
       title: '🛒 Producto agregado',
       html: `
