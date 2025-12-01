@@ -129,7 +129,7 @@
   color: #fff;
   border: none;
   border-radius: 12px;
-  padding: 12px 22px;
+  padding: 12px 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
@@ -137,6 +137,11 @@
   box-shadow: 0 0 15px rgba(81, 207, 102, 0.3);
 }
 
+@media (max-width: 768px) {
+  .cart-actions .continue-btn {
+    padding: 12px 1px;
+  }
+}
 .cart-actions .continue-btn:hover {
   background: linear-gradient(90deg, #37b24d, #51cf66);
   transform: translateY(-2px);
@@ -149,12 +154,18 @@
   color: #1e1e2e;
   border: none;
   border-radius: 12px;
-  padding: 12px 22px;
+  padding: 12px 18px;
   font-weight: 600;
   cursor: pointer;
   transition: all 0.3s ease;
   text-decoration: none;
   box-shadow: 0 0 15px rgba(203, 166, 247, 0.4);
+}
+
+@media (max-width: 768px) {
+  .cart-actions .checkout-btn {
+    padding: 12px 1px;
+  }
 }
 
 .cart-actions .checkout-btn:hover {
